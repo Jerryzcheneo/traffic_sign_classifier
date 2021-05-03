@@ -52,15 +52,15 @@ def send_signal_to_servos(result0):
         tuned_servoA.max() 
         tuned_servoB.max()
         leds.update(Leds.rgb_on(PURPLE))
-     elif 'slow' in result0:
+    elif 'slow' in result0:
         tuned_servoA.value = 0.6 
         tuned_servoB.value = 0.3
         leds.update(Leds.rgb_on(GREEN))
-     else:
+    else:
         tuned_servoA.max()
         tuned_servoB.min()
         leds.update(Leds.rgb_off())
-     time.sleep(0.002)
+    time.sleep(0.002)
             
 def read_labels(label_path):
     with open(label_path) as label_file:
