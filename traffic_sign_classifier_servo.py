@@ -54,11 +54,11 @@ def send_signal_to_servos(result0):
         leds.update(Leds.rgb_on(PURPLE))
     elif 'slow' in result0:
         tuned_servoA.value = 0.2 
-        tuned_servoB.value = 0.2
+        tuned_servoB.value = -0.2
         leds.update(Leds.rgb_on(GREEN))
     else:
         tuned_servoA.value = 0.4 
-        tuned_servoB.value = 0.4
+        tuned_servoB.value = -0.4
         leds.update(Leds.rgb_off())
     time.sleep(0.2)
             
