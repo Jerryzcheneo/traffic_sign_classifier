@@ -34,32 +34,32 @@ leds.update(Leds.rgb_off())
 RED = (0xFF, 0x00, 0x00)
 GREEN = (0x00, 0xFF, 0x00)
 BLUE = (0x00, 0x00, 0xFF)
-PURPLE = (0xFF, 0x00, 0xFF)
+YELLOW = (0x00, 0xFF, 0xFF)
 
 tuned_servoA = Servo(PIN_A)
 tuned_servoB = Servo(PIN_B)
 
 def send_signal_to_servos(result0):
-    if 'stop' in result0:
-        tuned_servoA.value = 0
-        tuned_servoB.value = 0
-        leds.update(Leds.rgb_on(RED))
+    if 'backgroud' in result0:
+        tuned_servoA.value = 0.4
+        tuned_servoB.value = -0.4
+        leds.update(Leds.rgb_off())
     elif 'left' in result0:
-        tuned_servoA.value = -0.8
-        tuned_servoB.value = -0.8
+        tuned_servoA.value = -0.6
+        tuned_servoB.value = -0.6
         leds.update(Leds.rgb_on(BLUE))
     elif 'right' in result0:
-        tuned_servoA.value = 0.8
-        tuned_servoB.value = 0.8
-        leds.update(Leds.rgb_on(PURPLE))
+        tuned_servoA.value = 0.6
+        tuned_servoB.value = 0.6
+        leds.update(Leds.rgb_on(YELLOW))
     elif 'slow' in result0:
         tuned_servoA.value = 0.2 
         tuned_servoB.value = -0.2
         leds.update(Leds.rgb_on(GREEN))
     else:
-        tuned_servoA.value = 0.4 
-        tuned_servoB.value = -0.4
-        leds.update(Leds.rgb_off())
+        tuned_servoA.value = 0
+        tuned_servoB.value = 0
+        leds.update(Leds.rgb_on(RED))
     time.sleep(0.2)
             
 def read_labels(label_path):
